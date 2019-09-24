@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from './components/App';
+import Stock from './components/Stock';
 import * as serviceWorker from './serviceWorker';
 import './css/style.css';
 
@@ -12,6 +13,7 @@ const Root = () => (
         <div>
           <Switch>
             <Route path="/" exact component={App}/>
+            <Route path="/stock" exact component={Stock} />
           </Switch>
         </div>
       </Router>
