@@ -80,22 +80,6 @@ input[type="text"] {
 }
 
 
-input[type="email"] {
-  font-size: 13px;
-}
-
-
-input[type="password"] {
-  font-size: 13px;
-}
-
-
-textarea {
-  font-size: 10px;
-  resize: none
-}
-
-
 ::-webkit-input-placeholder {
   font-size: 13px;
 }
@@ -117,97 +101,7 @@ textarea {
   font-size: 12px;
 }
 
-
-.login-form_text {
-  font-size: 11px;
-}
-
-.form-head_title {
-  color: #2857bd !important;
-  font-family: "Panama";
-}
-
-
-.form-head_text {
-  font-family: "Panama";
-}
-
-.form-footer_text {
-  font-family: 'Varela Round';
-  font-size: 12px;
-}
-
-.login-form {
-  max-width: 330px;
-  padding: 15px;
+.search-form {
+  max-width: 400px;
   margin: 0 auto;
 }
-
-.login-form .form-control:focus {
-  z-index: 2;
-}
-
-.login-form input [type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-
-.login-form input [type="password"] {
-  margin-bottom: -1px;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
-}
-
-
-.list-not-found li {
-  padding-top: 7px;
-  font-size: 13px;
-}
-
-.data-table {
-  font-family: 'Varela Round', sans-serif;
-  font-size: 12px;
-}
-
-.data-table__link {
-  color: #FFF !important;
-}
-
-.data-table__title {
-  background: #435d7d;
-  color: #fff;
-  }
-
-  .modal .modal-dialog {
-		max-width: 400px;
-	}
-	.modal .modal-header, .modal .modal-body, .modal .modal-footer {
-		padding: 20px 30px;
-	}
-	.modal .modal-content {
-		border-radius: 3px;
-	}
-	.modal .modal-footer {
-		background: #ecf0f1;
-		border-radius: 0 0 3px 3px;
-	}
-    .modal .modal-title {
-        display: inline-block;
-    }
-	.modal .form-control {
-		border-radius: 2px;
-		box-shadow: none;
-		border-color: #dddddd;
-	}
-	.modal textarea.form-control {
-		resize: vertical;
-	}
-	.modal .btn {
-		border-radius: 2px;
-		min-width: 100px;
-	}
-	.modal form label {
-		font-weight: normal;
-	}
