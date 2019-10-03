@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import * as d3 from 'd3';
 import Header from './layout/Header';
 
 const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo';
@@ -47,8 +46,10 @@ function Stock() {
   if(isError) {
     view = 'Could not load Data. Please try again';
   }
-  if(xData.length > 0) {
-    view = 'Got Data! Hello';
+  if(xData.length > 0 && yData.length > 0) {
+    view = (
+      <p>Got data</p>
+    )
   }
   return (
     <div className="text-center">
