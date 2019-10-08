@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Header from './layout/Header';
+import Chart from './Chart';
 
 const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo';
 function Stock() {
@@ -48,7 +49,12 @@ function Stock() {
   }
   if(xData.length > 0 && yData.length > 0) {
     view = (
-      <p>Got data</p>
+      <Chart
+        xData={xData}
+        yData={yData}
+        title='Stock Data'
+        color='#70CAD1'
+      />
     )
   }
   return (
