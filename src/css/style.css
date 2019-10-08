@@ -105,3 +105,9 @@ textarea {
   max-width: 400px;
   margin: 0 auto;
 }
+
+
+.btn-company {
+  color: #000000 !important;
+  font-size: 15px;
+}

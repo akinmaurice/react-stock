@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Jumbotron, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Container, Jumbotron } from 'react-bootstrap';
 import Header  from './layout/Header';
+import companies from '../ companies';
 
 function App() {
-
   return (
     <div>
       <Header />
@@ -14,11 +15,15 @@ function App() {
               A React Stock App
             </p>
             <br/>
-            <Form className="search-form">
-              <Form.Group controlId="exampleForm.ControlInput1">
-                <Form.Control type="text" placeholder="Search Stock" />
-              </Form.Group>
-            </Form>
+            <ul className="list-inline">
+              {companies.map(company => (
+              <li key={company.key} className="list-inline-item">
+                <Link to={`/stock/${company.value}`} className='btn btn-lg btn-warning btn-company'>
+                  {company.key}
+                </Link>
+              </li>
+              ))}
+            </ul>
         </Container>
       </Jumbotron>
     </div>

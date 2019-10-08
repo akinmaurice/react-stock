@@ -4,8 +4,6 @@ import {Line} from 'react-chartjs-2';
 
 function Chart (props) {
   const { xData, yData } = props;
-  console.log(xData);
-  console.log(yData);
   const state = {
     labels: xData,
     datasets: [

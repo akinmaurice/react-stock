@@ -3,8 +3,7 @@ import axios from 'axios';
 import Header from './layout/Header';
 import Chart from './Chart';
 
-const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo';
-function Stock() {
+function Stock(props) {
   const [ isLoading, setLoading ] = useState(false);
   const [ xData, setXData ] = useState([]);
   const [ yData, setYData ] = useState([]);
@@ -12,33 +11,31 @@ function Stock() {
 
   const canvasRef = useRef('canvas');
 
+  const { code } = props.match.params;
+  const API_KEY = 'DZ9OEQO2P5J1LXT9';
 
-  const fetchData = () => {
-    setLoading(true);
-    axios.get(url)
-    .then((response)=>
-    {
-      let stockChartXValues = [];
-      let stockChartYValues = [];
-        const { data } = response;
-        for(let key in data['Time Series (Daily)']) {
-          stockChartXValues.push(key);
-          stockChartYValues.push(data['Time Series (Daily)'][key]['1. open']);
-        }
-        setXData(stockChartXValues);
-        setYData(stockChartYValues);
-        setLoading(false);
-      })
-      .catch((e)=>{
-        setError(true);
-        setLoading(false);
-        console.log(e)
-      })
-  }
+  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${code}&apikey=${API_KEY}`;
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    setLoading(true);
+    axios.get(url)
+    .then((response)=>{
+    const { data } = response;
+    let stockChartXValues = [];
+    let stockChartYValues = [];
+    for(let key in data['Time Series (Daily)']) {
+      stockChartXValues.push(key);
+      stockChartYValues.push(data['Time Series (Daily)'][key]['1. open']);
+    }
+    setXData(stockChartXValues);
+    setYData(stockChartYValues);
+    setLoading(false);
+    })
+    .catch((e)=>{
+      setError(true);
+      setLoading(false);
+    });
+  }, [code, url])
 
   let view = '';
   if(isLoading) {
