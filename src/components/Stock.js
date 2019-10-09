@@ -12,7 +12,7 @@ function Stock(props) {
   const canvasRef = useRef('canvas');
 
   const { code } = props.match.params;
-  const API_KEY = 'DZ9OEQO2P5J1LXT9';
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${code}&apikey=${API_KEY}`;
 
